@@ -112,10 +112,21 @@ jobs:
            cp ../kernel_patches/selinux.c_fix.patch ./
            patch -p1 -F 3 < selinux.c_fix.patch
            
+      - name: Package core_hook.c
+        run: |
+          # 打包 core_hook.c 文件
+          tar -czf core_hook.tar.gz -C kernel_workspace/kernel_platform/KernelSU/kernel core_hook.c
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: core_hook
+          path: core_hook.tar.gz
+
       - name: Build kernel
         run: |
-         cd kernel_workspace
-         ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} gki
+         #cd kernel_workspace
+         #./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} gki
          
       - name: Make AnyKernel3
         run: |
