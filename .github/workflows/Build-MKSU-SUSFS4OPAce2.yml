@@ -115,17 +115,16 @@ jobs:
            #cp ../kernel_patches4mksu/selinux.c_fix.patch ./
            #patch -p1 -F 3 < selinux.c_fix.patch
 
-      - name: Package files
+      - name: Package core_hook.c
         run: |
-          # 将当前目录下的所有文件打包成 tar.gz 文件
-          cd kernel_workspace
-          tar -czf files.tar.gz .
+          # 打包 core_hook.c 文件
+          tar -czf core_hook.tar.gz -C kernel_workspace/kernel_platform/KernelSU/kernel core_hook.c
 
-      - name: Upload Working directory file
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: files
-          path: files.tar.gz
+          name: core_hook
+          path: core_hook.tar.gz
            
       - name: Build kernel
         run: |
