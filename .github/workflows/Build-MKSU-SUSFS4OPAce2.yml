@@ -114,6 +114,18 @@ jobs:
            
            #cp ../kernel_patches4mksu/selinux.c_fix.patch ./
            #patch -p1 -F 3 < selinux.c_fix.patch
+
+      - name: Package files
+        run: |
+          # 将当前目录下的所有文件打包成 tar.gz 文件
+          cd kernel_workspace
+          tar -czf files.tar.gz .
+
+      - name: Upload Working directory file
+        uses: actions/upload-artifact@v3
+        with:
+          name: files
+          path: files.tar.gz
            
       - name: Build kernel
         run: |
