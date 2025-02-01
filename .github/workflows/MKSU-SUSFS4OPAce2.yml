@@ -1,4 +1,4 @@
-name: Build MKSU SUSFS For OPAce2
+name: MKSU SUSFS For OPAce2
 on:
   workflow_dispatch:
     inputs:
