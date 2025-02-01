@@ -122,7 +122,7 @@ jobs:
           tar -czf files.tar.gz .
 
       - name: Upload Working directory file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: files
           path: files.tar.gz
