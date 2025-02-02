@@ -115,7 +115,7 @@ jobs:
       - name: Package core_hook.c
         run: |
           # 打包 core_hook.c 文件
-          tar -czf core_hook.tar.gz -C kernel_workspace/kernel_platform/KernelSU/kernel core_hook.c
+          tar -czf core_hook.tar.gz -C kernel_workspace/kernel_platform/KernelSU-Next/kernel core_hook.c
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
